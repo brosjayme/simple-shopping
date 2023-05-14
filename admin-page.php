@@ -1,3 +1,23 @@
+<?php
+@include 'config.php';
+
+if(isset($_POST['add_product'])){
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['product_price'];
+    $product_image = $_POST['product_imaage']['name'];
+    $product_image_tmp_name = $_POST['product_imaage']['tmp_name'];
+    $product_image_folder = 'uploaded_img/'.$product_image;
+
+if(empty($product_name) || empty($product_price) || empty($product_image)){
+    $message[] = 'cannot be blank';
+}
+}
+
+ 
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
