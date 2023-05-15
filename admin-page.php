@@ -22,7 +22,13 @@ if(empty($product_name) || empty($product_price) || empty($product_image)){
         $message[] = 'new product upload failed';
      }
 }
-}
+};
+
+if(isset($_GET['delete'])){
+   $id = $_GET['delete'];
+   mysqli_query($conn, "DELETE FROM products WHERE id = $id");
+   header('location:admin-page.php');
+};
 
  
 ?>
@@ -79,16 +85,22 @@ $select = mysqli_query($conn, "SELECT * FROM products");
             <td colspan="2">action</td>
         </tr>
          </thead>
+
         <?php
+
         while($row = mysqli_fetch_assoc($select)){
         
         ?>
          <tr>
             <td><img src='uploaded_img/<?php echo $row['image']; ?>' height='100' alt=''></td>
             <td><?php echo $row['name']; ?></td>
-            <td><?php echo $row['price']; ?>/-</td>
+            <td>$<?php echo $row['price']; ?>/-</td>
             <td>
-                <a href='admin_update.php?edit=<?php echo $row['id']; ?>' class="btn"></div>><i class="fas fa-edit"></i>edit</a>
+                <a href='admin-page.php?edit=<?php echo $row['id']; ?>' class="btn">
+            </div>><i class="fas fa-edit"></i>edit</a>
+                <a href='admin-page.php?delete=<?php echo $row['id']; ?>' class="btn">
+            </div>><i class="fas fa-trash"></i>delete</a>
+          
             </td>
         </tr>
     <?php

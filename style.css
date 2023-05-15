@@ -84,9 +84,21 @@ margin: 2rem 0;
 font-size: 2rem;
 background: var(--bg-color);
 }
-.product-display .product-display-table tr{
+.product-display .product-display-table td{
 padding: 1rem;
+font-size: 2rem;
+border-bottom: var(--border);
 }
+
+.product-display .product-display-table .btn:first-child{
+    margin-top: 0;
+}
+.product-display .product-display-table .btn:last-child{
+background: crimson;
+}
+.product-display .product-display-table .btn:last-child:hover{
+    background: var(--black);
+    }
 
 
 
