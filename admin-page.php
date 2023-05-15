@@ -56,9 +56,9 @@ if(empty($product_name) || empty($product_price) || empty($product_image)){
     <div class="admin-product-form">
 <form action="?php $_SERVER['PHP_SELF'] ?" method="post" enctype="multipart/form-data">
 <h3>add a new product</h3>
-<input type='text' placeholder='enter product name' name='product-name' class='box'>
-<input type='number' placeholder='enter product price' name='product-price' class='box'>
-<input type='file' accept="image/png, image/jpeg, image/jpg" name='product-image' class='box'>
+<input type='text' placeholder='enter product name' name='product_name' class='box'>
+<input type='number' placeholder='enter product price' name='product_price' class='box'>
+<input type='file' accept="image/png, image/jpeg, image/jpg" name='product_image' class='box'>
 <input type="submit" class="btn" name="add_product" value="add product">
 </form>
     </div>
@@ -66,8 +66,38 @@ if(empty($product_name) || empty($product_price) || empty($product_image)){
     <?php
 $select = mysqli_query($conn, "SELECT * FROM products");
 
+
  ?>
-<div class="product-display"></div>
+
+<div class="product-display">
+    <table class="product-display-table">
+       <thead>
+        <tr>
+            <td>product image</td>
+            <td>product name</td>
+            <td>product price</td>
+            <td colspan="2">action</td>
+        </tr>
+         </thead>
+        <?php
+        while($row = mysqli_fetch_assoc($select)){
+        
+        ?>
+         <tr>
+            <td><img src='uploaded_img/<?php echo $row['image']; ?>' height='100' alt=''></td>
+            <td><?php echo $row['name']; ?></td>
+            <td><?php echo $row['price']; ?>/-</td>
+            <td>
+                <a href='admin_update.php?edit=<?php echo $row['id']; ?>' class="btn"></div>><i class="fas fa-edit"></i>edit</a>
+            </td>
+        </tr>
+    <?php
+        };
+        ?>
+
+    </table>
+
+    </iv>
  </div>  
  
 </body>

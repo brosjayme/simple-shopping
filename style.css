@@ -73,9 +73,20 @@ html{
     background: var(--white);
     text-transform: none;
 }
-
-
-
+ .product-display{
+margin: 2rem 0;
+}
+.product-display .product-display-table{
+    width: 100%;
+    text-align: center;
+}
+.product-display .product-display-table thead{
+font-size: 2rem;
+background: var(--bg-color);
+}
+.product-display .product-display-table tr{
+padding: 1rem;
+}
 
 
 
@@ -86,7 +97,17 @@ html{
     html{
         font-size: 55%;
     }
+    .product-display .product-display-table{
+        width: 80rem;
+    }
 }
+
+@media (max-width:768px) {
+.product-display{
+    overflow-y:scroll ;
+}
+}
+
 
 @media (max-width:450px) {
     html{
