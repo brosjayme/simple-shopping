@@ -30,7 +30,9 @@ html{
   padding: 1rem 3rem;
   background: var(--green);
   color: var(--white);
+  text-align: center;
 }
+
 .btn:hover{
     background: var(--black);
 }
@@ -47,6 +49,13 @@ html{
     max-width: 1200px;
     padding: 2rem;
     margin:0 auto;
+}
+
+.admin-product-form.centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 .admin-product-form{
     max-width: 50rem;
@@ -97,7 +106,7 @@ border-bottom: var(--border);
 background: crimson;
 }
 .product-display .product-display-table .btn:last-child:hover{
-    background: var(--black);
+    background: var(--black);  
     }
 
 

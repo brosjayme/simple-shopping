@@ -60,7 +60,7 @@ if(isset($_GET['delete'])){
 
  <div class="container">
     <div class="admin-product-form">
-<form action="?php $_SERVER['PHP_SELF'] ?" method="post" enctype="multipart/form-data">
+<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
 <h3>add a new product</h3>
 <input type='text' placeholder='enter product name' name='product_name' class='box'>
 <input type='number' placeholder='enter product price' name='product_price' class='box'>
@@ -96,7 +96,7 @@ $select = mysqli_query($conn, "SELECT * FROM products");
             <td><?php echo $row['name']; ?></td>
             <td>$<?php echo $row['price']; ?>/-</td>
             <td>
-                <a href='admin-page.php?edit=<?php echo $row['id']; ?>' class="btn">
+                <a href='admin-update.php?edit=<?php echo $row['id']; ?>' class="btn">
             </div>><i class="fas fa-edit"></i>edit</a>
                 <a href='admin-page.php?delete=<?php echo $row['id']; ?>' class="btn">
             </div>><i class="fas fa-trash"></i>delete</a>
